@@ -3,6 +3,7 @@ target/
 *-gh/
 *.osm
 nbactions*.xml
+/config.yml
 build.xml
 maven/
 measurement*.properties
