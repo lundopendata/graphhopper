@@ -26,9 +26,11 @@ WORKDIR /app
 COPY --from=builder /app/graphhopper/web/target/graphhopper-web-*.jar /app/graphhopper-web.jar
 
 # Copy config file
-COPY config.yml .
+# COPY config.yml .
+RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/gtfs/config.yml
 
 # ARG GTFS_API_KEY
+ARG GTFS_API_KEY
 ENV GTFS_API_KEY=${GTFS_API_KEY}
 RUN wget --header="Accept-Encoding: gzip, deflate" -O sweden.zip "https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key=${GTFS_API_KEY}"
 
