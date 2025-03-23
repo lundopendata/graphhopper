@@ -34,7 +34,7 @@ RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/p
 # ENV GTFS_API_KEY=${GTFS_API_KEY}
 # RUN wget --header="Accept-Encoding: gzip, deflate" -O sweden.zip "https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key=${GTFS_API_KEY}"
 
-RUN wget https://download.geofabrik.de/europe/sweden-latest.osm.pbf
+RUN wget https://github.com/lundopendata/graphhopper/raw/refs/heads/playground/skane.osm.pbf
 
 
 # Expose API port
@@ -42,7 +42,7 @@ EXPOSE 8989
 
 # Bygg GraphHopper's graph med både OSM och GTFS under byggprocessen
 RUN java -Xmx4g -Xms4g \
-    -Ddw.graphhopper.datareader.file=sweden-latest.osm.pbf \
+    -Ddw.graphhopper.datareader.file=skane.osm.pbf \
     -jar graphhopper-web.jar import config.yml
 
 # Starta endast webbtjänsten när containern startas
