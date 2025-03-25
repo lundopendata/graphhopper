@@ -32,7 +32,7 @@ RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/g
 # ARG GTFS_API_KEY
 ARG GTFS_API_KEY
 ENV GTFS_API_KEY=${GTFS_API_KEY}
-RUN wget --header="Accept-Encoding: gzip, deflate" -O sweden.zip "https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key=${GTFS_API_KEY}"
+RUN wget --header="Accept-Encoding: gzip, deflate" -O sweden.zip "https://opendata.samtrafiken.se/gtfs/skane/skane.zip?key=${GTFS_API_KEY}"
 
 RUN wget https://download.geofabrik.de/europe/sweden-latest.osm.pbf
 
