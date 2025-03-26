@@ -41,12 +41,12 @@ RUN wget https://download.geofabrik.de/europe/sweden-latest.osm.pbf
 EXPOSE 8989
 
 # Bygg GraphHopper's graph med både OSM och GTFS under byggprocessen
-RUN java -Xmx4g -Xms4g \
+RUN java -Xmx8g -Xms8g \
     -Ddw.graphhopper.datareader.file=sweden-latest.osm.pbf \
     -Ddw.graphhopper.gtfs.file=sweden.zip \
     -jar graphhopper-web.jar import config.yml
 
 # Starta endast webbtjänsten när containern startas
-CMD ["java", "-Xmx4g", "-Xms4g", "-jar", "/app/graphhopper-web.jar", "server", "config.yml"]
+CMD ["java", "-Xmx8g", "-Xms8g", "-jar", "/app/graphhopper-web.jar", "server", "config.yml"]
 
 
