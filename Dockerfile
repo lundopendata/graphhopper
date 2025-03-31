@@ -5,13 +5,15 @@ WORKDIR /app
 # Hämta den förbyggda JAR-filen
 RUN wget https://github.com/graphhopper/graphhopper/releases/download/10.2/graphhopper-web-10.2.jar -O graphhopper-web.jar
 
-# Hämta konfigurationsfilen
-RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/playground/config.yml
+
 
 # Hämta OSM-filen
 RUN wget https://github.com/lundopendata/graphhopper/raw/refs/heads/playground/skane.osm.pbf
 
 RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/playground/core/src/main/resources/com/graphhopper/custom_models/carf.json
+
+# Hämta konfigurationsfilen
+RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/playground/config.yml
 
 # Exponera API-porten
 EXPOSE 8989
