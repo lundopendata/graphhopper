@@ -28,6 +28,13 @@ graphhopper:
 
   custom_models.directory : .
   profiles:
+   - name: car
+#     turn_costs:
+#       vehicle_types: [motorcar, motor_vehicle]
+#       u_turn_costs: 60
+#     for more advanced turn costs, see #2957 or bike_tc.yml
+     custom_model_files: [car.json]
+  
    - name: carf
 #     turn_costs:
 #       vehicle_types: [motorcar, motor_vehicle]
@@ -65,7 +72,7 @@ graphhopper:
   # profiles with `turn_costs` a more elaborate preparation is required (longer preparation time and more memory
   # usage) and the routing will also be slower than with `turn_costs: false`.
   profiles_ch:
-    - profile: carf
+    - profile: car, carf
 
   # Hybrid mode:
   # Similar to speed mode, the hybrid mode (Landmarks, LM) also speeds up routing by doing calculating auxiliary data
