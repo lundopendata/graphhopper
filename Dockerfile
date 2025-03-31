@@ -11,6 +11,8 @@ RUN wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/p
 # Hämta OSM-filen
 RUN wget https://github.com/lundopendata/graphhopper/raw/refs/heads/playground/skane.osm.pbf
 
+run wget https://raw.githubusercontent.com/lundopendata/graphhopper/refs/heads/playground/core/src/main/resources/com/graphhopper/custom_models/carf.json
+
 # Exponera API-porten
 EXPOSE 8989
 
